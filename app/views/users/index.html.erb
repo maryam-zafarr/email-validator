@@ -1,0 +1,23 @@
+<div class='container mt-4'>
+  <div class='row justify-content-center'>
+    <div class='col-md-4'>
+      <%= render 'form' %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h3>Results</h3>
+      <span id="user_lists" class="font-weight-bold">
+        <% @users.each do |user| %>
+          <div id="<%= user.id %>" class="mt-2">
+            <label><%= user.email %></label>
+            <span class='float-right'>(<%= user.name %>)</span>
+          </div>
+        <% end %>
+      </span>
+
+      <%= will_paginate(@users, class: 'pagination-lg mt-5') %>
+    </div>
+  </div>
+</div>
